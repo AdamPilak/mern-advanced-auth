@@ -45,7 +45,7 @@ const DashboardPage = () => {
             Account Activity
           </h3>
           <p className="text-gray-300">
-            <span className="font-bold">Joinded: </span>
+            <span className="font-bold">Joined: </span>
             {new Date(user.createdAt).toLocaleDateString("en-US", {
               year: "numeric",
               month: "long",

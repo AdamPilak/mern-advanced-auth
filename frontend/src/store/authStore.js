@@ -18,7 +18,7 @@ export const useAuthStore = create((set) => ({
     set({ isLoading: true, error: null });
     try {
       const response = await axios.post(`${API_URL}/signup`, {
-        email,
+        email: email.toLowerCase(),
         password,
         name,
       });
@@ -40,7 +40,7 @@ export const useAuthStore = create((set) => ({
     set({ isLoading: true, error: null });
     try {
       const response = await axios.post(`${API_URL}/login`, {
-        email,
+        email: email.toLowerCase(),
         password,
       });
       set({
@@ -120,7 +120,7 @@ export const useAuthStore = create((set) => ({
 
     try {
       await axios.post(`${API_URL}/forgot-password`, {
-        email,
+        email: email.toLowerCase(),
       });
       set({
         isLoading: false,
