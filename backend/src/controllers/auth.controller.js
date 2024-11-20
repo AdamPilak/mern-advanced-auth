@@ -7,8 +7,7 @@ import {
   sendPasswordResetEmail,
   sendResetSuccessEmail,
   sendVerificationEmail,
-  sendWelcomeEmail,
-} from "../mailtrap/emails.js";
+} from "../nodemailer/emails.js";
 
 export const signup = async (req, res) => {
   const { email, password, name } = req.body;
@@ -79,7 +78,7 @@ export const verifyEmail = async (req, res) => {
     user.verificationTokenExpiresAt = undefined;
     await user.save();
 
-    await sendWelcomeEmail(user.email, user.name);
+    // await sendWelcomeEmail(user.email, user.name);
 
     res
       .status(200)
